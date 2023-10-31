@@ -1,11 +1,11 @@
 pipeline {
-	agent any
-	environment {
-		PATH = "C:/maven/apache-maven-3.9.5/bin$PATH"
+    agent any
+    environment {
+        PATH = "C:/maven/apache-maven-3.9.5/bin$PATH"
         // Add other environment variables as needed
-	}
-	stages {
-		stage('Checkout') {
+    }
+    stages {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
@@ -14,6 +14,6 @@ pipeline {
             steps {
                 bat "C:\\Windows\\System32\\cmd.exe /c mvn clean install"
             }
-        }
-    }
+}
+}
 }
