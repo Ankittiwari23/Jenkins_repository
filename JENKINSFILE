@@ -1,7 +1,9 @@
 pipeline {
     agent any
-    tools{
-        maven 'MAVEN'
+    tools {
+        // Use the correct Maven tool name configured in Jenkins
+        maven 'maven'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -10,7 +12,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "mvn clean install"
+                script {
+                    // Use the configured Maven installation
+                    bat "mvn clean package"
+                }
             }
         }
     }
